@@ -12,6 +12,15 @@ import { PostPage } from '../pages/post/post';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
+import { AngularFireModule } from 'angularfire2';
+const config = {
+  apiKey: "AIzaSyBjVo0vPeumGVmW7_iNBLMpqyyimPbtg3Q",
+  authDomain: "test-39545.firebaseapp.com",
+  databaseURL: "https://test-39545.firebaseio.com",
+  projectId: "test-39545",
+  storageBucket: "test-39545.appspot.com",
+  messagingSenderId: "811465794664"
+};
 
 @NgModule({
   declarations: [
@@ -24,7 +33,8 @@ import { DataProvider } from '../providers/data/data';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
