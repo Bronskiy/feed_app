@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { DataProvider } from '../../providers/data/data'
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database'
 
 const data = [{
   title: 'post1',
@@ -20,9 +20,9 @@ const data = [{
   templateUrl: 'home.html'
 })
 export class HomePage {
-  posts: any = []
-  constructor(public navCtrl: NavController, public _data: DataProvider) {
-    this._data.Posts.subscribe((post) => { this.posts.push(post)})
+  posts: FirebaseListObservable<any[]>
+  constructor(public navCtrl: NavController, private db: AngularFireDatabase) {
+    this.posts = db.list('/posts')
   }
 
 }

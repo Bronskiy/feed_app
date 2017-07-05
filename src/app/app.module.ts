@@ -13,6 +13,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { ConnectionComponent } from '../components/connection/connection';
 const config = {
   apiKey: "AIzaSyBjVo0vPeumGVmW7_iNBLMpqyyimPbtg3Q",
   authDomain: "test-39545.firebaseapp.com",
@@ -29,12 +31,14 @@ const config = {
     ContactPage,
     HomePage,
     TabsPage,
-    PostPage
+    PostPage,
+    ConnectionComponent
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
